@@ -29,3 +29,15 @@
  peliculas y que de algunas de llas poner restriccion de edad mayor de 16 años , final saber cuanto debepagar el cliente, tambien teniendo en cuenta que si compra las boletas por internet tiene
  un 5 % de descuento -->
 
+
+
+
+ <!-- ingresar los medicamentos deuna farmacia en una nueva base de datos
+  
+ serial,
+ nombre
+ cantidad
+ precio
+ laboratoro
+ proveedor
+ -->

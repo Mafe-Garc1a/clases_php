@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+}
+input , button{
+    border-radius: 20px;
+}
+.container{
+    border-radius: 10px;
+}
