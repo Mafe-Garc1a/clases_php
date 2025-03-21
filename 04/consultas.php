@@ -6,7 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+    <?php
+    include_once('conexion.php');
+?>
 </head>
 <body>
   <table class="text-center">
@@ -23,7 +25,7 @@
         </td>
     </tr>
   </table>
-  <a href="insertar_alumnos"><button>insertar</button></a>
+  <a href="ingresar_persona"><button>insertar</button></a>
   <table  class="table">
     <tr>
         <td><strong>nombre</strong></td>
@@ -32,22 +34,23 @@
         <td>fecha</td>
     </tr>
     <?php
-        if(empty($_POST['buscar'])){
+        if(!empty($_POST['buscar'])){
             $buscar_consulta=($_POST['buscar']);
-            $consulta=$conexion->query("SELECT * FROM persona WHERE persona LIKE '%$buscar_consulta%'" );
+            $consulta=$conexion->query("SELECT * FROM persona WHERE nombre LIKE '%$buscar_consulta%'" );
 
         }else{
             $consulta=$conexion->query("SELECT * FROM persona");
 
         };
         while($row=$consulta->fetch_array()){
-            $email=$row['email'];
+            $correo=$row['correo'];
             ?>
             <tr>
                 <td><?php echo $row['nombre'];   ?></td>
-                <td><?php echo $email;   ?></td>
-                <td><?php echo $row['nota'];   ?></td>
-                <td><?php echo $row['fecha'];   ?></td>
+                <td><?php echo $row['documento'];   ?></td>
+                <td><?php echo $correo;   ?></td>
+                <td><?php echo $row['edad'];   ?></td>
+                <td><?php echo $row['genero'];   ?></td>
             </tr>
        <?php }; ?>
         
