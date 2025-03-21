@@ -9,9 +9,12 @@
     
 </head>
 <body>
+    <nav>
+        
+    </nav>
     <div class="container text-center mt-2">
     <h1>FORMULARIO </h1>
-    <form action="ingresar_persona.php" method="POST">
+    <form action="" method="POST">
         <div class="row">
             <div class="col">
                   <!-- poner el action dentro del form -->
