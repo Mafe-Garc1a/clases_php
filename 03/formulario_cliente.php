@@ -87,7 +87,7 @@
       <div class="modal-body">
       <div class="container text-center mt-2">
     <h1>FORMULARIO </h1>
-    <form action="ingresar.php" method="POST">
+    <form action="" method="POST">
         <div class="row">
             <div class="col">
                   <!-- poner el action dentro del form -->
@@ -105,11 +105,19 @@
         <div class="row">
             <div class="col">
             <button type="submit"  class="btn btn-success" value="enviar">enviar</button>
-            
             </div>
         </div>
     </form>
-    
+    <?php
+    include_once('conexionbd.php');
+    $documento=$_POST['documento'];
+    $nombre=$_POST['nombre'];
+    $correo=$_POST['correo'];
+    $direccion=$_POST['direccion'];
+    $telefono=$_POST['telefono'];
+
+
+    ?>
             </div>
             </div>
         
