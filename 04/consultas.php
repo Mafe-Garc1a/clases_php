@@ -15,7 +15,7 @@
     <tr>
         <td>
             <h1>Listado personas</h1>
-            <form action="">
+            <form action="" method="post">
                 <div>
                     <input type="text" name="buscar" placeholder="buscar Persona por nombre">
                 </div><br>
