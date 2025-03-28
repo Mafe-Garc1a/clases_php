@@ -78,7 +78,37 @@ factura->codigo producto , nombre producto , cantidad(convertir de kilos a libra
                 <td><?php echo $row['apellido']; ?></td>
                 <td><?php echo $row['direccion']; ?></td>
             </tr>
-       <?php }; ?>
+<?php }; ?>
+</table>
+
+
+
+<table class="table table-hover text-center">
+    <h1 class="text-center">productos</h1>
+    <tr>
+        <th>codigo</th>
+        <th>nombre Pcto</th>
+        <th>descripcion</th>
+        <th>cantidad</th>
+        <th>precio</th>
+    </tr>
+    <?php
+        if(!empty($_POST['buscar'])){
+            $buscar=$_POST['buscar'];
+            $consulta=$conexionbd->query("SELECT * FROM producto WHERE nombre LIKE '%$buscar%' " );
+        }else{
+            $consulta=$conexionbd->query("SELECT * FROM producto");
+        };
+        while($row=$consulta->fetch_array()){
+            ?>
+            <tr>
+                <td><?php echo $row['codigo'];  ?></td>
+                <td><?php echo $row['nombre'];  ?></td>
+                <td><?php echo $row['descripcion'];  ?></td>
+                <td><?php echo $row['cantidad'];  ?></td>
+                <td><?php echo $row['precio'];  ?></td>
+            </tr>
+    <?php };  ?>
 </table>
 
 
@@ -96,12 +126,119 @@ factura->codigo producto , nombre producto , cantidad(convertir de kilos a libra
 
 
 
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel3">Ingresar factura</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center mb-3">FORMULARIO FACTURA</h3>
+                    <form action="ingresar_producto.php" method="POST" class="text-center">
+                        <h5 class=" fw-semibold">Codigo</h5>
+                            <SELEct>
+                                <?php 
+                                $consulta=$conexionbd->query("SELECT * FROM producto");
+                                while ($row=$consulta->fetch_array()){
+                                echo '<option value="'.$row['codigo'].'" selected>'.$row['codigo'].'</option>';
+                                };
+                                ?>
+                            </SELEct>
+                        <h5 class=" fw-semibold">Nombre</h5>
+                            <select>
+                                <?php 
+                                $consulta=$conexionbd->query("SELECT * FROM producto");
+                                while ($row=$consulta->fetch_array()){
+
+                                    echo '<option value="'.$row['nombre'].'" selected>'.$row['nombre'].'</option>';
+                                };
+                                ?>
+                            </select>
+                        <h5 class=" fw-semibold">Descripción</h5>
+                            <select name="" id="">
+                                <?php
+                                $consulta=$conexionbd->query("SELECT * FROM producto");
+                                while ($row=$consulta->fetch_array()){
+                                    echo '<option value="'.$row['descripcion'].'"selected>'.$row['descripcion'].'</option>';
+                                };
+                                ?>
+                            </select>
+                        <h5 class=" fw-semibold">Cantidad</h5>
+                                <select name="" id="">
+                                    <?php
+                                    $consulta=$conexionbd->query("SELECT * FROM producto");
+                                    while($row=$consulta->fetch_array()){
+                                        echo '<option value="'.$row['cantidad'].'" selected>'.$row['cantidad'].'</option>';
+                                    };
+                                    ?>
+                                </select>
+                        <h5 class=" fw-semibold">precio</h5>
+                            <select>
+                                <?php
+                                $consulta=$conexionbd->query("SELECT * FROM producto");
+                                while($row=$consulta->fetch_array()){
+                                    echo '<option value="'.$row['precio'].'" selected'.$row['precio'].'</option>';
+                                };
+
+                                ?>
+                            </select>
+                            <div class="row">
+                                <button type="submit" class="btn btn-primary mt-3"  data-bs-dismiss="modal">Ingresar</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
 
 
 
+
+
+
+
+
+
+
+    
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel2">Ingresar producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center mb-3">FORMULARIO PRODUCTO</h3>
+                    <form action="ingresar_producto.php" method="POST" class="text-center">
+                        <h5 class=" fw-semibold">Codigo</h5>
+                            <input type="text" name="codigo"><br>
+                        <h5 class=" fw-semibold">Nombre</h5>
+                            <input type="text" name="nombre"><br>
+                        <h5 class=" fw-semibold">Descripción</h5>
+                            <textarea name="descripcion" id=""></textarea><br>
+                        <h5 class=" fw-semibold">Cantidad</h5>
+                            <input type="text" name="cantidad"><br>
+                        <h5 class=" fw-semibold">precio</h5>
+                            <input type="text" name="precio"><br>
+                        <button type="submit" class="btn btn-primary mt-3"  data-bs-dismiss="modal">Ingresar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -118,7 +255,7 @@ factura->codigo producto , nombre producto , cantidad(convertir de kilos a libra
                     <form action="ingresar.php" method="POST">
         <div class="row">
             <div class="col">
-                  <!-- poner el action dentro del form -->
+                <!-- poner el action dentro del form -->
         <h2>documento</h2>
         <!-- poner nombre en el input  -->
         <input type="text"  name="documento">
@@ -142,41 +279,11 @@ factura->codigo producto , nombre producto , cantidad(convertir de kilos a libra
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
-    <!-- Modal2 -->
-            <!-- Modal2 -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel2">Ingresar producto</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3 class="text-center mb-3">FORMULARIO PRODUCTO</h3>
-                    <form action="ingresar_producto.php" method="POST" class="text-center">
-                        <h5 class=" fw-semibold">Codigo</h5>
-                            <input type="text" name="documento_pro"><br>
-                        <h5 class=" fw-semibold">Nombre</h5>
-                            <input type="text" name="nombre_pro"><br>
-                        <h5 class=" fw-semibold">Descripción</h5>
-                            <textarea name="descripcion" id=""></textarea><br>
-                        <h5 class=" fw-semibold">Cantidad</h5>
-                            <input type="text" name="telefono_pro"><br>
-                        <h5 class=" fw-semibold">precio</h5>
-                            <input type="text" name="precio"><br>
-                        <button type="submit" class="btn btn-primary mt-3"  data-bs-dismiss="modal">Ingresar</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
 </body>
 </html>
