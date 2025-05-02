@@ -11,11 +11,11 @@
   <body class="mua">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="crud.php"><strong class="text-danger fs-1">MI EPS</strong></a>
+    <a class="navbar-brand" href="crud.php"><strong class="text-primary fs-1">MI EPS</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end me-4" id="navbarNav">
+    <!-- <div class="collapse navbar-collapse justify-content-end me-4" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal4">ingresarE</a>
@@ -30,13 +30,13 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </nav>
 <DIV class="CONTAINER text-center mt-4 p-2">
         <div class="row">
             <div class="col">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                 agenda tu cita ----> <i class="bi bi-arrow-right-circle"></i>
             </button>
             </div>
@@ -46,15 +46,53 @@
             </button>
             </div>
             <div class="col">
-              <a href="consultaPaciente.php"> <button type="button" class="btn btn-danger"  >
+              <a href="consultaPaciente.php"> <button type="button" class="btn btn-primary"  >
             modifica cancela tu cita---->
             </button></a>
           
             </div>
         </div>
 </DIV>
-
-
+<DIV class="CONTAINER text-center mt-4 p-2">
+        <div class="row">
+            <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                ingresa eps---> <i class="bi bi-arrow-right-circle"></i>
+            </button>
+            </div>
+            <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+            consulta  eps<i class="bi bi-moon-stars"></i>---->
+            </button>
+            </div>
+            <div class="col">
+              <a href="consultaEps.php"> <button type="button" class="btn btn-primary"  >
+            modifica cancela eps---->
+            </button></a>
+          
+            </div>
+        </div>
+</DIV>
+<DIV class="CONTAINER text-center mt-4 p-2">
+        <div class="row">
+            <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                ingresa medico/a---> <i class="bi bi-arrow-right-circle"></i>
+            </button>
+            </div>
+            <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+            consulta  medico/a<i class="bi bi-moon-stars"></i>---->
+            </button>
+            </div>
+            <div class="col">
+              <a href="consultaMedico.php"> <button type="button" class="btn btn-primary"  >
+            modifica cancela medico/a---->
+            </button></a>
+          
+            </div>
+        </div>
+</DIV>
 
 
 <!-- ------------------------------------------------ -->
@@ -72,7 +110,7 @@
         <div class="container">
         <h5>ingrese numero de su documento</h5>
         <form class="d-flex" method="POST">
-        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscar">
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscareps">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
           <table class ="table table-hover text-center">
@@ -117,10 +155,11 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel1">agendar cita</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <form action="ingresar_cita.php" method="post">
-        <div class="row">
-            <div class="col">
+        <table>
+          
+        </table>
                   <!-- poner el action dentro del form -->
         <h2>documento</h2>
         <!-- poner nombre en el input  -->
@@ -129,10 +168,13 @@
         <input type="text" name="nombre">
         <h2>correo</h2>
         <input type="email" name="correo">
-        <h2>telefono</h2>
-        
+        <h2>telefono</h2>yyyyy
         <input type="text" name="telefono">
-        <button type="submit" class="btn btn-danger" value="enviar"> enviar</button>
+        <div class="row mt-2">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" value="enviar"> enviar</button>
+          </div>
+        </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -142,9 +184,196 @@
     </div>
   </div>
 </div>
+<!-- modales eps -->
+<!-- modal 3 -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel3">ingresa eps</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <form action="ingresar_eps.php" method="post">
+        <table>
+          
+        </table>
+                  <!-- poner el action dentro del form -->
+        <h2>nit</h2>
+        <!-- poner nombre en el input  -->
+        <input type="text"  name="nit">
+        <h2>nombre eps</h2>
+        <input type="text" name="nombre">
+        <h2>correo Eps</h2>
+        <input type="email" name="correo">
+        <h2>telefono Eps</h2>
+        <input type="text" name="telefono">
+        <h2>Pais Eps</h2>
+        <input type="text" name="pais">
+        <div class="row mt-2">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" value="enviar"> enviar</button>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-danger" value="enviar">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 4-->
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel4">CONSULTA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        <h5>ingrese numero nombre eps</h5>
+        <form class="d-flex" method="POST">
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscareps">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+          <table class ="table table-hover text-center">
+            <tr>
+              <th>nit</th>
+              <th>nombre eps</th>
+              <th>correo</th>
+              <th>telefono</th>
+              <th>pais</th>
+            </tr>
+            <?php   
+            include_once("conexion.php");
+            if(!empty($_POST['buscareps'])){
+              $buscareps=$_POST['buscareps'];
+              $consultaeps=$conexion->query("SELECT * FROM eps WHERE  nombre  LIKE  '%$buscareps%'");
+            }else{
+              $consultaeps=$conexion->query("SELECT * FROM eps");
+            };
+            while($row=$consultaeps->fetch_array()){
+              ?>
+              <tr>
+                <td> <?php echo $row['nit'];  ?></td>
+                <td> <?php echo $row['nombre'];  ?></td>
+                <td> <?php echo $row['correo'];  ?></td>
+                <td> <?php echo $row['telefono'];  ?></td>
+                <td> <?php echo $row['pais'];  ?></td>
+              </tr>
+            <?php }; ?>
+          </table>
+          <p class="text-danger">recuerda para ver tu consullta vuelve y  da click en el boton consulta cuano esta ventana se cierre </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modales medico -->
 
-  
-
+<!-- modal 5 -->
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel5">ingresa medico/a</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <form action="ingresar_medico.php" method="post">
+        <table>
+          
+        </table>
+                  <!-- poner el action dentro del form -->
+        <h2>docmento</h2>
+        <!-- poner nombre en el input  -->
+        <input type="text"  name="docmento">
+        <h2>nombre</h2>
+        <input type="text" name="nombre">
+        <h2>numero de licencia</h2>
+        <input type="text" name="n_licencia">
+        <h2>especialidad</h2>
+        <input type="text" name="especialidad">
+        <h2>correo </h2>
+        <input type="email" name="correo">
+        <h2>telefono</h2>
+        <input type="text" name="telefono">
+        
+        <div class="row mt-2">
+          <div class="col">
+            <button type="submit" class="btn btn-primary" value="enviar"> enviar</button>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-danger" value="enviar">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal 6 -->
+<div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel6">CONSULTA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        <h5>ingrese numero de documento</h5>
+        <form class="d-flex" method="POST">
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscarMdico">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+          <table class ="table table-hover text-center">
+            <tr>
+              <th>documento</th>
+              <th>nombre</th>
+              <th>n_licencia</th>
+              <th>especialidad</th>
+              <th>correo</th>
+              <th>telefono</th>
+              
+            </tr>
+            <?php   
+            include_once("conexion.php");
+            if(!empty($_POST['buscarMdico'])){
+              $buscarMdico=$_POST['buscarMdico'];
+              $consultaMdico=$conexion->query("SELECT * FROM medico WHERE  documento  LIKE  '%$buscarMdico%'");
+            }else{
+              $consultaMdico=$conexion->query("SELECT * FROM medico");
+            };
+            while($row=$consultaMdico->fetch_array()){
+              ?>
+              <tr>
+                <td> <?php echo $row['documento'];  ?></td>
+                <td> <?php echo $row['nombre'];  ?></td>
+                <td> <?php echo $row['n_licencia'];  ?></td>
+                <td> <?php echo $row['especialidad'];  ?></td>
+                <td> <?php echo $row['correo'];  ?></td>
+                <td> <?php echo $row['telefono'];  ?></td>
+                
+              </tr>
+            <?php }; ?>
+          </table>
+          <p class="text-danger">recuerda para ver tu consullta vuelve y  da click en el boton consulta cuano esta ventana se cierre </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>

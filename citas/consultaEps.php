@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>modifica o elimina tu cita</title>
+    <title>modifica o elimina eps</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
@@ -19,42 +19,44 @@
     </div>
     </nav>
     <div class="container p-4">
-        <h1 class="mb-2">ingrese el numero del documento</h1>
+        <h1 class="mb-2">ingrese el nombre de eps</h1>
         <form class="d-flex" method="POST">
         
-        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscar">
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscarEps">
         <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
     </div>
     <div class="container mt-2">
         <table class ="table table-hover text-center">
             <tr>
-                <th>documento</th>
+                <th>nit</th>
                 <th>nombre</th>
                 <th>correo</th>
                 <th>telefono</th>
             </tr>
             <?php   
             include_once("conexion.php");
-            if(!empty($_POST['buscar'])){
-                $buscar=$_POST['buscar'];
-                $consulta=$conexion->query("SELECT * FROM paciente WHERE  documento  LIKE  '%$buscar%'");
+            if(!empty($_POST['buscarEps'])){
+                $buscarEps=$_POST['buscarEps'];
+                $consulta=$conexion->query("SELECT * FROM eps WHERE  nombre  LIKE  '%$buscar%'");
             }else{
-                $consulta=$conexion->query("SELECT * FROM paciente");
+                $consulta=$conexion->query("SELECT * FROM eps");
             };
             while($row=$consulta->fetch_array()){
             ?>
             <tr>
-                <td> <?php echo $row['documento'];  ?></td>
+                <td> <?php echo $row['nit'];  ?></td>
                 <td> <?php echo $row['nombre'];  ?></td>
                 <td> <?php echo $row['correo'];  ?></td>
                 <td> <?php echo $row['telefono'];  ?></td>
-                <td><a href="modificarPaciente.php?
-                documento=<?php echo $row["documento"]?>&
+                <td> <?php echo $row['pais'];  ?></td>
+                <td><a href="modificarEps.php?
+                nit=<?php echo $row["nit"]?>&
                 nombre=<?php echo $row['nombre']?>&
                 correo=<?php echo $row['correo']?>&
-                telefono=<?php echo $row['telefono']?>" title="editar"><button class="btn btn-success">editar</button></a></td>
-                <td> <a href="eliminarPaciente.php?documento=<?php echo $row['documento'];   ?>" class="btn btn-danger" title="elimnar">
+                telefono=<?php echo $row['telefono']?>&
+                pais=<?php echo $row['pais'] ?>" title="editar"><button class="btn btn-success">editar</button></a></td>
+                <td> <a href="eliminarEps.php?nit=<?php echo $row['nit'];   ?>" class="btn btn-danger" title="elimnar">
                 <i class="icn-edit">eliminar</i></td>
             </tr>
             <?php }; ?>

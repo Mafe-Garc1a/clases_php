@@ -8,7 +8,7 @@
     <?php include_once("conexion.php") ; ?>
 
 </head>
-<body>
+<body >
     <?php
     $nombre=$_GET['nombre'];
     $email=$_GET['email'];
