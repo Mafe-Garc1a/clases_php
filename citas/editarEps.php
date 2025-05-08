@@ -7,5 +7,5 @@ $correo=$_POST['correo'];
 $telefono=$_POST['telefono'];
 $pais=$_POST['pais'];
 $conexion->query("UPDATE eps set nombre='$nombre' , correo='$correo' , telefono='$telefono' , pais='$pais' WHERE nit='$nit' ");
-header("location:consultaEpsb.php");
+header("location:consultaEps.php");
 ?>

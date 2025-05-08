@@ -33,6 +33,14 @@
     </div> -->
   </div>
 </nav>
+<?php
+session_start();
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+    header("Location: login.html");
+    exit();
+}
+echo "Bienvenido, Administrador " . $_SESSION['nombre_usuario'];
+?>
 <DIV class="CONTAINER text-center mt-4 p-2">
         <div class="row">
             <div class="col">
@@ -166,9 +174,37 @@
         <input type="text"  name="documento">
         <h2>nombre</h2>
         <input type="text" name="nombre">
+        <h2>selecciona medico</h2>
+        <select name="medico" id="">
+          <?php
+          $consultaMdico=$conexion->query("SELECT * FROM medico ");
+          $y='-';
+          while($rowM=$consultaMdico->fetch_array()){
+            echo '<option value="'.$rowM['nombre'].$y.$rowM['especialidad'].'"selected>'.$rowM['nombre'].$y.$rowM['especialidad'].'</option>';
+            // echo '<option value="'.$row['nombre'].'" selected>'.$row['nombre'].'</option>';
+          };
+
+        ?>
+        </select>
+        <h2>selecciona eps</h2>
+        <select name="epsP" id="">
+          <?php
+          $consultaEpsP=$conexion->query("SELECT * FROM eps ");
+          $y='-';
+          while($rowM=$consultaEpsP->fetch_array()){
+            echo '<option value="'.$rowM['nombre'].'"selected>'.$rowM['nombre'].'</option>';
+            // echo '<option value="'.$row['nombre'].'" selected>'.$row['nombre'].'</option>';
+          };
+        ?>
+         </select>
+        <h2>selecciona categoria</h2>
+        <select name="categoria" id="">
+          <option value="A">comun</option>
+          <option value="B">vip</option>
+        </select>
         <h2>correo</h2>
         <input type="email" name="correo">
-        <h2>telefono</h2>yyyyy
+        <h2>telefono</h2>
         <input type="text" name="telefono">
         <div class="row mt-2">
           <div class="col">
