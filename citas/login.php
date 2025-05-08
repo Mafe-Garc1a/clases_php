@@ -49,6 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //verifica q sea enviado en metodo p
     }
 
     $consultaUsuario->close();
-    $conn->close();
+    $conexion->close();
 }
+//tengo un cliente vende anuncios publicitarios , bolantes  ,
+//clientes , diseñadores graficos , asistente ,instaladores
+//avisos medidad , luces , acrilico usqueda medida , necesita bolantes , andamo 2 o 3 instaladores
+//no salen todas las cotizaciones
+//se de datos listad de precios , tipo agente, solo la secretaria se comunica con el agente, otas ciudades ,andamio para 3 pisos
+//cantdad bolantes , descripcion colores . tamaño  cotizacion en pdf  consumo api chat gpt o open IA 
+//input tipo text area, fecha cliente , resuesta valor, acumulado valor
 ?>
