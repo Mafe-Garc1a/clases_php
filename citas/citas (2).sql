@@ -63,7 +63,7 @@ CREATE TABLE `medico` (
 
 INSERT INTO `medico` (`documento`, `nombre`, `n_licencia`, `especialidad`, `correo`, `telefono`) VALUES
 (13038, 'mafe', '111', 'pediatria', 'mafe122@gmail.com', 2147483647),
-(0, 'caro', '113', 'odontoogia', 'caro322@gmail.com', 2147483647);
+(12346, 'caro', '113', 'odontoogia', 'caro322@gmail.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`documento`, `nombre`, `medico`, `epsP`, `categoria`, `correo`, `telefono`) VALUES
-('112785', 'danna nicol', 'mafe-pediatria', 'nueva eps', 'B', 'danna22@gmail.com', '32263422836'),
+('11278590', 'danna nicol', 'mafe-pediatria', 'nueva eps', 'B', 'danna22@gmail.com', '32263422836'),
 ('13132785', 'mafe', 'caro-odontoogia', 'nueva eps', 'A', 'mafe122@gmail.com', '35144540');
 
 -- --------------------------------------------------------
