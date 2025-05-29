@@ -18,7 +18,6 @@ if (ini_get("session.use_cookies")) { //pregunta si se utilizan cookies para eli
 
 // Finalmente, destruye la sesión
 session_destroy();
-
 // Redirige al usuario al login o a otra página
 header("Location: inicio.php");
 exit;//Esto garantiza que nada más se ejecute después de la redirección.
