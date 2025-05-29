@@ -39,11 +39,11 @@
 <i class="bi bi-person-fill"></i>
 <?php
 session_start();
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'medico') {
     header("Location: login.html");
     exit();
 }
-echo "Bienvenido, Administrador " . $_SESSION['nombre_usuario'];
+echo "Bienvenido, medico/a " . $_SESSION['nombre_usuario'];
 ?>
 
 <DIV class="CONTAINER text-center mt-4 p-2">
@@ -68,31 +68,20 @@ echo "Bienvenido, Administrador " . $_SESSION['nombre_usuario'];
 </DIV>
 <DIV class="CONTAINER text-center mt-4 p-2">
         <div class="row">
-            <div class="col">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                ingresa eps---> </i>
-            </button>
-            </div>
+            
             <div class="col">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
             consulta  eps</i>---->
             </button>
             </div>
-            <div class="col">
-              <a href="consultaEps.php"> <button type="button" class="btn btn-primary"  >
-            modifica cancela eps---->
-            </button></a>
+           
           
             </div>
         </div>
 </DIV>
 <DIV class="CONTAINER text-center mt-4 p-2">
         <div class="row">
-            <div class="col">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                ingresa medico/a---> <i class="bi bi-arrow-right-circle"></i>
-            </button>
-            </div>
+           
             <div class="col">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
             consulta  medico/a <i class="bi bi-arrow-right-circle"></i>>---->
@@ -106,9 +95,7 @@ echo "Bienvenido, Administrador " . $_SESSION['nombre_usuario'];
             </div>
         </div>
 </DIV>
- <button type="button" class="btn btn-primary mt-4 p-2" data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                ingresa nuevo usuario---> <i class="bi bi-arrow-right-circle"></i>
-  </button>
+
 
 
 
