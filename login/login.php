@@ -73,7 +73,7 @@
 					//nombre=$row['nom'];
 					
 					$_SESSION['user_name']=$row['nom'];
-					$_SESSION['tipo_user']=$row['tipo'];
+					$_SESSION['tipo_user']=$row ['tipo'];
 					$_SESSION['cod_user']=$usu;
 					if($row['tipo']=='a' or $row['tipo']=='c'){
 						echo ('Bienvenido<br>'.$row['nom'].' '.$row['ape'].'').'<br>';
